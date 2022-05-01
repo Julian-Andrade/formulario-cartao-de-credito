@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="wth=device-wth, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Calculadora</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="calculator">
+        <div class="d0"></div>
+        <div class="d1" onclick="clicar('1')">1</div>
+        <div class="d2" onclick="clicar('2')">2</div>
+        <div class="d3" onclick="clicar('3')">3</div>
+        <div class="d4" onclick="clicar('4')">4</div>
+        <div class="d5" onclick="clicar('5')">5</div>
+        <div class="d6" onclick="clicar('6')">6</div>
+        <div class="d7" onclick="clicar('7')">7</div>
+        <div class="d8" onclick="clicar('8')">8</div>
+        <div class="d9" onclick="clicar('9')">9</div>
+        <div class="d10" onclick="clicar('0')">0</div>
+        <div class="d11" onclick="clicar('.')">.</div>
+        <div class="d12" onclick="del()">clear</div>
+        <div class="d13" onclick="clicar('/')">/</div>
+        <div class="d14" onclick="clicar('+')">+</div>
+        <div class="d15" onclick="clicar('-')">-</div>
+        <div class="d16" onclick="clicar('*')">*</div>
+        <div class="d18" onclick="calcular()">=</div>
+        <div class="d19" onclick="eraser()"><</div>
+      </div>
+    </div>
+    <footer>
+      <div>
+        <p>Project created for studie. <span>HTML5 + CSS3 GRID + JavaScript.</span></p>
+      </div>
+    </footer>
+    <script>
+      function clicar(number) {
+        let keyCap = document.querySelector("div.d0").innerHTML; //index.html . seleção do id 'div.d0' . escreva como HTML.
+        document.querySelector("div.d0").innerHTML = keyCap + number; //index.html . seleção do id 'div.d0' . escreva keyCap + number (clicado), irá escrever o número um ao lado do outro
+      }
+
+      function del() {
+        document.querySelector("div.d0").innerHTML = ""; //index.html . seleção do id 'div.d0' . escreva vazio.
+      }
+
+      function eraser() {
+        let back = document.querySelector("div.d0").innerHTML; //index.html . seleção do id 'div.d0' . escreva como HTML.
+        document.querySelector("div.d0").innerHTML = back.substring(0, back.length - 1); //index.html . seleção do id 'div.d0' . puxa o valor da string 'back' começando em 0 e terminando em número de caracteres - 1.
+      }
+
+      function calcular() {
+        let resultado = document.querySelector("div.d0").innerHTML; //index.html . seleção do id 'div.d0' . escreva como HTML.
+        if (resultado) {
+          document.querySelector("div.d0").innerHTML = eval(resultado);
+        } else {
+          alert("Nada pode ser calculado, insira uma equação!");
+        }
+      }
+    </script>
+  </body>
+</html>
