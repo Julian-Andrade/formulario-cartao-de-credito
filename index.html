@@ -3,162 +3,39 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="wth=device-wth, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <title>Formulário - Cartão de Pagamento</title>
+    <script defer src="script.js"></script>
+    <title>Calculadora</title>
   </head>
   <body>
     <div class="container">
-      <div class="container_card">
-        <!--Card Front-->
-        <div class="card_front">
-          <div class="card_image">
-            <img src="img/chip.png" alt="Card Chip" />
-            <img src="img/visa.png" alt="Visa Logomarca" />
-          </div>
-          <div class="card_number">#############</div>
-          <div class="card_flexbox">
-            <div class="card">
-              <p>card holder</p>
-              <div class="card_full_name">full name</div>
-            </div>
-            <div class="card">
-              <p>expires</p>
-              <div class="card_expiration">
-                <p class="card_mm">mm</p>
-                <p class="card_yy">yy</p>
-              </div>
-            </div>
-          </div>
-          <!--Card Back-->
-          <div class="card_back">
-            <div class="bar_cvv"></div>
-            <div class="card">
-              <p>cvv</p>
-              <div class="cvv_box"></div>
-              <img src="img/visa.png" alt="Visa Logomarca" />
-            </div>
-          </div>
-        </div>
+      <div class="calculator">
+        <div class="d0"></div>
+        <div class="d1" onclick="clicar('1')">1</div>
+        <div class="d2" onclick="clicar('2')">2</div>
+        <div class="d3" onclick="clicar('3')">3</div>
+        <div class="d4" onclick="clicar('4')">4</div>
+        <div class="d5" onclick="clicar('5')">5</div>
+        <div class="d6" onclick="clicar('6')">6</div>
+        <div class="d7" onclick="clicar('7')">7</div>
+        <div class="d8" onclick="clicar('8')">8</div>
+        <div class="d9" onclick="clicar('9')">9</div>
+        <div class="d10" onclick="clicar('0')">0</div>
+        <div class="d11" onclick="clicar('.')">.</div>
+        <div class="d12" onclick="del()">clear</div>
+        <div class="d13" onclick="clicar('/')">/</div>
+        <div class="d14" onclick="clicar('+')">+</div>
+        <div class="d15" onclick="clicar('-')">-</div>
+        <div class="d16" onclick="clicar('*')">*</div>
+        <div class="d18" onclick="calcular()">=</div>
+        <div class="d19" onclick="eraser()"><</div>
       </div>
-      <!--Form-->
-      <form>
-        <div class="input_box">
-          <label>card number</label>
-          <input
-            type="text"
-            name="card_number"
-            id="card_number"
-            maxlength="19"
-            minlength="1"
-            required
-          />
-        </div>
-        <div class="input_box">
-          <label>card holder</label>
-          <input
-            type="text"
-            name="card_holder"
-            id="card_holder"
-            minlength="1"
-            required
-          />
-        </div>
-        <div class="expiration">
-          <div class="input_box">
-            <label>expiration mm</label>
-            <select name="" id="expiration_month" required>
-              <option value="month" selected disabled>month</option>
-              <option value="01">01</option>
-              <option value="02">02</option>
-              <option value="03">03</option>
-              <option value="04">04</option>
-              <option value="05">05</option>
-              <option value="06">06</option>
-              <option value="07">07</option>
-              <option value="08">08</option>
-              <option value="09">09</option>
-              <option value="10">10</option>
-              <option value="11">11</option>
-              <option value="12">12</option>
-            </select>
-          </div>
-          <div class="input_box">
-            <label>expiration yy</label>
-            <select name="" id="expiration_year" required>
-              <option value="year" selected disabled>year</option>
-              <option value="2022">2022</option>
-              <option value="2023">2023</option>
-              <option value="2024">2024</option>
-              <option value="2025">2025</option>
-              <option value="2026">2026</option>
-              <option value="2027">2027</option>
-              <option value="2028">2028</option>
-              <option value="2029">2029</option>
-              <option value="2030">2030</option>
-            </select>
-          </div>
-          <div class="input_box">
-            <label>cvv</label>
-            <input
-              type="text"
-              name="cvv"
-              id="cvv"
-              maxlength="6"
-              minlength="1"
-              required
-            />
-          </div>
-        </div>
-        <input type="button" value="Send" class="button" />
-      </form>
     </div>
     <footer>
       <div>
-        <p>Project created for studie. Based in <a href="https://www.youtube.com/watch?v=G7_VTWnWz40" target="_blank">Mr. Web Designer</a> tutorial.</p>
+        <p>Project created for studie. <span>HTML5 + CSS3 GRID + JavaScript.</span></p>
       </div>
     </footer>
-    <script>
-      document.querySelector("input#card_number").oninput = () => {
-        document.querySelector("div.card_number").innerHTML =
-          document.querySelector("input#card_number").value;
-      };
-
-      document.querySelector("input#card_holder").oninput = () => {
-        document.querySelector("div.card_full_name").innerHTML =
-          document.querySelector("input#card_holder").value;
-      };
-
-      document.querySelector("select#expiration_month").oninput = () => {
-        document.querySelector("p.card_mm").innerHTML = document.querySelector(
-          "select#expiration_month"
-        ).value;
-      };
-
-      document.querySelector("select#expiration_year").oninput = () => {
-        document.querySelector("p.card_yy").innerHTML = document.querySelector(
-          "select#expiration_year"
-        ).value;
-      };
-
-      document.querySelector("input#cvv").onmouseenter = () => {
-        document.querySelector("div.card_front").style.transform =
-          "perspective(1000px) rotateY(-360deg)";
-        document.querySelector("div.card_back").style.transform =
-          "perspective(1000px) rotateY(0deg)";
-      };
-
-      document.querySelector("input#cvv").onmouseleave = () => {
-        document.querySelector("div.card_front").style.transform =
-          "perspective(1000px) rotateY(0deg)";
-        document.querySelector("div.card_back").style.transform =
-          "perspective(1000px) rotateY(-180deg)";
-      };
-
-      document.querySelector("input#cvv").oninput = () => {
-        document.querySelector("div.cvv_box").innerHTML =
-          document.querySelector("input#cvv").value;
-      };
-    </script>
   </body>
 </html>
